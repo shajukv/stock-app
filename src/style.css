@@ -1,0 +1,183 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #101010;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color:blue;
+  font-size: 18px;
+}
+
+a.active, a.active:link, a.active:visited{
+    pointer-events: none;
+    cursor: default;
+  
+}
+
+
+.repo-list-item {
+    display: flex;
+    min-height: 16vh;
+    border: 1px solid rgb(25, 25, 26);
+    border-bottom-style: none;
+    margin: -2px 20px 0px 20px;
+    padding: 10px 10px 0px 10px;
+    
+
+
+}
+.repo-list-item .left {
+    width : 80%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.repo-list-item .right {
+    width : 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.repo-list-item .right .repo-credits-title{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 5px;
+}
+
+.repo-list-item .right .repo-credits {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+}
+
+.repo-list-item .btn {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(25, 25, 26);
+}
+
+.repo-list-item .desc {
+    font-family: ui-monospace;
+    font-size: 14px;
+    color: slategrey;
+}
+.repo-list-item .details {
+    font-family: ui-monospace;
+    font-size: 14px;
+    
+    display: flex;
+    width: 35%;
+    justify-content:left;
+    gap: 15px;
+    
+
+}
+ 
+
+.dev-list-item {
+    display: flex;
+    min-height: 16vh;
+    border: 1px solid rgb(25, 25, 26);
+    border-bottom-style: none;
+    margin: -2px 20px 10px 20px;
+    padding: 10px 10px 10px 10px;;
+    flex-direction: row;
+    font-family: ui-monospace;
+    font-size: 14px;
+    color: slategrey;
+
+}
+.dev-list-item .left {
+    width : 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.dev-list-item .popular {
+    width : 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.dev-list-item .right {
+    width : 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.dev-list-item  .right .repo-credits-title{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 5px;
+}
+.dev-list-item .btn {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(25, 25, 26);
+    color:lightgray
+}
+.dev-list-item .title{
+    width:30%;
+    
+}
+.dev-list-item .title .profile{
+    display: inline-block;
+    align-content:space-around;
+    justify-items: right;
+    padding-left: 25px;
+    position:absolute;
+    padding-top: 6px;
+    
+    
+}
+
+dev-list-item .action{
+    width:30%;
+    
+}
+.avatar {
+    object-fit: cover;
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
+}
+.repo-avatar {
+    object-fit: cover;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+}
+ .username {
+    padding-top: 0px;
+}
+.pname {
+    color: blue;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  height: 20em;
+
+}
