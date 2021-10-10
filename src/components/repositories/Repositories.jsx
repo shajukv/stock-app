@@ -50,8 +50,8 @@ const Repositories = () => {
                 <span>
                   <GoRepoForked size={12} /> {repo.forks}
                 </span>
+                <span>built by </span>
                 <span>
-                  built by{' '}
                   {repo &&
                     'builtBy' in repo &&
                     repo.builtBy.map((dev, index) => {

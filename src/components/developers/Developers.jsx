@@ -4,6 +4,7 @@ import { GoRepo, GoStar, GoFlame, GoHeart } from 'react-icons/go/'
 import loaderImage from '../../images/load.svg'
 import { API_URL } from '../../constant/apiUrls'
 import { fetchData } from '../../api/_dataService'
+import * as Styled from './developers.styles'
 
 const apiUrl = 'DEVS' in API_URL && API_URL.DEVS
 const Developers = () => {
@@ -22,44 +23,51 @@ const Developers = () => {
     <>
       {data?.data.map((dev) => {
         return (
-          <div key={dev.rank} className="dev-list-item desc">
-            <div className="left">
+          <Styled.DevListItem key={dev.rank}>
+            <Styled.DevListItemRank>
+              <span>{dev?.rank}</span>
+            </Styled.DevListItemRank>
+            <Styled.DevListItemLeft>
               <div className="title">
-                <img src={dev.avatar} className="avatar" />
-                <div className="profile">
-                  <span className="pname">{dev.name}</span>
-                  <p className="username"> {dev.username}</p>
-                </div>
+                <Styled.Avatar src={dev.avatar} />
+                <Styled.Profile>
+                  <span>
+                    {' '}
+                    <a href={dev?.url}>{dev.name}</a>
+                  </span>
+                  <p> {dev.username}</p>
+                </Styled.Profile>
               </div>
-            </div>
-            <div className="popular">
+            </Styled.DevListItemLeft>
+            <Styled.DevListItemPopular>
               <span>
-                <GoFlame size={12} />
-                POPULAR REPO
+                <GoFlame size={12} /> <span className="repo">POPULAR REPO</span>
               </span>
               <span>
-                <GoRepo size={12} />
-                <a href="#">{dev.popularRepository?.repositoryName}</a>
+                <GoRepo size={12} />{' '}
+                <a href={dev?.popularRepository?.url}>
+                  {dev.popularRepository?.repositoryName}
+                </a>
               </span>
               <span>{dev.popularRepository?.description}</span>
-            </div>
-            <div className="right">
-              <div className="repo-credits-title">
-                <button className="btn desc">
+            </Styled.DevListItemPopular>
+            <Styled.DevListItemRight>
+              <Styled.DevListItemRightCreditsTitle>
+                <Styled.DevListItemButton>
                   <span>
                     <GoHeart size={12} />
                   </span>{' '}
                   <span>{'Sponsor'}</span>
-                </button>
-                <button className="btn desc">
+                </Styled.DevListItemButton>
+                <Styled.DevListItemButton>
                   <span>
                     <GoStar size={12} />
                   </span>{' '}
                   <span>{'Star'}</span>
-                </button>
-              </div>
-            </div>
-          </div>
+                </Styled.DevListItemButton>
+              </Styled.DevListItemRightCreditsTitle>
+            </Styled.DevListItemRight>
+          </Styled.DevListItem>
         )
       })}
     </>

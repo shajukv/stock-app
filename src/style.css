@@ -169,6 +169,7 @@ dev-list-item .action{
 }
  .username {
     padding-top: 0px;
+    margin-top: 1px;
 }
 .pname {
     color: blue;

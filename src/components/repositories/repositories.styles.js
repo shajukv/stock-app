@@ -30,11 +30,12 @@ color: slategrey;
 `;
 export const RepoListItemLeftDetails  = styled.div`
 font-family: ui-monospace;
-font-size: 14px;
+font-size: 13px;
 display: flex;
-width: 35%;
 justify-content:left;
 gap: 15px;
+margin-top: 6px;
+margin-bottom: 6px;
 `;
 
 export const RepoListItemRightCreditTitle  = styled.div`
