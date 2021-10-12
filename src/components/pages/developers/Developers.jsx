@@ -30,11 +30,11 @@ const Developers = () => {
             </Styled.DevListItemRank>
             <Styled.DevListItemLeft>
               <div className="title">
-                <Styled.Avatar src={dev.avatar} />
+                <Styled.Avatar src={dev?.avatar} />
                 <Styled.Profile>
                   <span>
                     {' '}
-                    <a href={dev?.url}>{dev.name}</a>
+                    <a href={dev?.url}>{dev?.name}</a>
                   </span>
                   <p> {dev.username}</p>
                 </Styled.Profile>
