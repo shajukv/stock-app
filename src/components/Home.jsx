@@ -7,26 +7,29 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom'
+import { AppProvider } from '../context/AppContext'
 
 const Repositories = React.lazy(() => import('./repositories/Repositories'))
 const Developers = React.lazy(() => import('./developers/Developers'))
 export const Home = () => {
   return (
     <>
-      <Header />
-      <React.Suspense fallback="Loading...">
-        <Router>
-          <Nav />
-          <Switch>
-            <Route path="/" exact component={Repositories}></Route>
-            <Route path="/repos" component={Repositories}></Route>
-            <Route path="/devs" component={Developers}></Route>
-            <Route>
-              <Redirect to="/" />
-            </Route>
-          </Switch>
-        </Router>
-      </React.Suspense>
+      <AppProvider>
+        <Header />
+        <React.Suspense fallback="Loading...">
+          <Router>
+            <Nav />
+            <Switch>
+              <Route path="/" exact component={Repositories}></Route>
+              <Route path="/repos" exact component={Repositories}></Route>
+              <Route path="/devs" exact component={Developers}></Route>
+              <Route>
+                <Redirect to="/" />
+              </Route>
+            </Switch>
+          </Router>
+        </React.Suspense>
+      </AppProvider>
     </>
   )
 }
