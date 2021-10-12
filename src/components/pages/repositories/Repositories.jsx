@@ -1,9 +1,10 @@
 import { useQuery } from 'react-query'
 import { GoRepo, GoStar, GoRepoForked, GoHeart } from 'react-icons/go/'
-import loaderImage from '../../images/load.svg'
-import { API_URL } from '../../constant/apiUrls'
-import { fetchData } from '../../api/_dataService'
+import loaderImage from '../../../images/load.svg'
+import { API_URL } from '../../../constant/apiUrls'
+import { fetchData } from '../../../api/_dataService'
 import * as Styled from './repositories.styles'
+import * as CommonStyled from '../../../style/common.styles'
 
 const apiUrl = 'REPOS' in API_URL && API_URL.REPOS
 
@@ -14,9 +15,9 @@ const Repositories = () => {
   console.log(data)
   if (isLoading) {
     return (
-      <div className="loader">
-        <img src={loaderImage} width="30" height="30" className="loader-img" />
-      </div>
+      <CommonStyled.Loader>
+        <img src={loaderImage} width="30" height="30" alt="" />
+      </CommonStyled.Loader>
     )
   }
   if (error) return <h2> An error has occurred: {error.message} </h2>
@@ -56,9 +57,8 @@ const Repositories = () => {
                     'builtBy' in repo &&
                     repo.builtBy.map((dev, index) => {
                       return (
-                        <img
+                        <Styled.RepoAvatar
                           src={dev.avatar}
-                          className="repo-avatar"
                           key={index}
                           alt={dev.username}
                         />

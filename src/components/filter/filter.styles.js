@@ -1,12 +1,10 @@
 import styled from '@emotion/styled'
 
 export const Filter = styled.div`
-position: relative;
-display: flex;
-border-radius: .25em;
-overflow: hidden;
-
-
+  position: relative;
+  display: flex;
+  border-radius: 0.25em;
+  overflow: hidden;
 `
 export const Select = styled.select`
   appearance: none;
@@ -20,10 +18,7 @@ export const Select = styled.select`
   cursor: pointer;
   font-style: normal;
   font-weight: normal;
-    font-family: 'Akkurat-Mono';
-    font-size: 15px;
-    color: grey;
-  
+  font-family: 'Akkurat-Mono';
+  font-size: 15px;
+  color: grey;
 `
-
-

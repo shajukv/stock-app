@@ -2,8 +2,9 @@ import React from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { Header } from './components/header/Header'
 import { Nav } from './components/nav/Nav'
-import './style.css'
+import { GlobalStyle } from './style/GlobalStyle.styles'
 import logo from './images/load.svg'
+import { Global, css } from '@emotion/react'
 import {
   Route,
   BrowserRouter as Router,
@@ -14,10 +15,10 @@ import {
 import { AppProvider } from './context/AppContext'
 
 const Repositories = React.lazy(() =>
-  import('./components/repositories/Repositories')
+  import('./components/pages/repositories/Repositories')
 )
 const Developers = React.lazy(() =>
-  import('./components/developers/Developers')
+  import('./components/pages/developers/Developers')
 )
 
 const queryClient = new QueryClient()
@@ -27,6 +28,7 @@ export const App = () => {
     <>
       <QueryClientProvider client={queryClient}>
         <AppProvider>
+          <Global styles={GlobalStyle} />
           <Header />
           <React.Suspense fallback="Loading...">
             <Router>
