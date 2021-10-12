@@ -22,7 +22,7 @@ const Developers = () => {
 
   return (
     <>
-      {data?.data.map((dev) => {
+      {data && data?.data.map((dev) => {
         return (
           <Styled.DevListItem key={dev.rank}>
             <Styled.DevListItemRank>
@@ -45,12 +45,16 @@ const Developers = () => {
                 <GoFlame size={12} /> <span className="repo">POPULAR REPO</span>
               </span>
               <span>
-                <GoRepo size={12} />{' '}
+                {
+                  dev?.popularRepository?.repositoryName &&
+                  <GoRepo size={12} />
+                }
+                {' '}
                 <a href={dev?.popularRepository?.url}>
-                  {dev.popularRepository?.repositoryName}
+                  {dev?.popularRepository?.repositoryName}
                 </a>
               </span>
-              <span>{dev.popularRepository?.description}</span>
+              <span>{dev?.popularRepository?.description}</span>
             </Styled.DevListItemPopular>
             <Styled.DevListItemRight>
               <Styled.DevListItemRightCreditsTitle>

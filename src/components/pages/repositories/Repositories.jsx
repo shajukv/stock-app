@@ -24,15 +24,15 @@ const Repositories = () => {
 
   return (
     <>
-      {data?.data.map((repo) => {
+      {data && data?.data.map((repo) => {
         return (
-          <Styled.RepoListItem key={repo.rank}>
+          <Styled.RepoListItem key={repo?.rank}>
             <Styled.RepoListItemLeft>
               <div className="title">
                 <GoRepo size={12} />{' '}
                 <a
                   href={repo?.url}
-                >{`${repo.username} / ${repo.repositoryName}`}</a>
+                >{`${repo?.username} / ${repo?.repositoryName}`}</a>
               </div>
               <Styled.RepoListItemLeftDesc>
                 <p>{repo.description}</p>
@@ -43,15 +43,15 @@ const Repositories = () => {
                     color: repo.languageColor ? repo.languageColor : '#fff',
                   }}
                 >
-                  {repo.language}
+                  {repo?.language}
                 </span>
                 <span>
-                  <GoStar size={12} /> {repo.totalStars}
+                  <GoStar size={12} /> {repo?.totalStars}
                 </span>
                 <span>
-                  <GoRepoForked size={12} /> {repo.forks}
+                  <GoRepoForked size={12} /> {repo?.forks}
                 </span>
-                <span>built by </span>
+                <span>Built by </span>
                 <span>
                   {repo &&
                     'builtBy' in repo &&
