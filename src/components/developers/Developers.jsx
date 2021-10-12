@@ -60,10 +60,7 @@ const Developers = () => {
                   <span>{'Sponsor'}</span>
                 </Styled.DevListItemButton>
                 <Styled.DevListItemButton>
-                  <span>
-                    <GoStar size={12} />
-                  </span>{' '}
-                  <span>{'Star'}</span>
+                  <span></span> <span>{'Follow'}</span>
                 </Styled.DevListItemButton>
               </Styled.DevListItemRightCreditsTitle>
             </Styled.DevListItemRight>
