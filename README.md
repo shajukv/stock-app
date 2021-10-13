@@ -1,4 +1,4 @@
-# ReactJS CoinMENA Excerise
+# ReactJS CoinMENA Exercise
 
 - Functional Components.
 - React Context
