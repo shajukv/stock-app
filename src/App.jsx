@@ -1,5 +1,6 @@
 import React from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import Container from './components/container/Container'
 import { Header } from './components/header/Header'
 import { Nav } from './components/nav/Nav'
 import { GlobalStyle } from './style/GlobalStyle.styles'
@@ -29,6 +30,7 @@ export const App = () => {
       <QueryClientProvider client={queryClient}>
         <AppProvider>
           <Global styles={GlobalStyle} />
+          <Container>
           <Header />
           <React.Suspense fallback="Loading...">
             <Router>
@@ -43,6 +45,7 @@ export const App = () => {
               </Switch>
             </Router>
           </React.Suspense>
+          </Container>
         </AppProvider>
       </QueryClientProvider>
     </>
