@@ -1,4 +1,5 @@
-# ReactJS CoinMENA Exercise
+# STake - React Weather App - Excerise
+React Weather app- communicate with an open weather API. List current weather for city and forecast weather report for every 3 hours for 5 days.
 
 - Functional Components.
 - React Context
