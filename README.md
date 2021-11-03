@@ -1,4 +1,4 @@
-# STake - React Weather App - Excerise
+# STake - React Weather App - Exercise
 React Weather app- communicate with an open weather API. List current weather for city and forecast weather report for every 3 hours for 5 days.
 
 - Functional Components.
