@@ -3,10 +3,9 @@ import { useState, createContext } from 'react'
 export const AppContext = createContext()
 
 export const AppProvider = (props) => {
-  const [activeTab, setActiveTab] = useState('repos')
-
+  const [location, setLocation] = useState(null)
   return (
-    <AppContext.Provider value={[activeTab, setActiveTab]}>
+    <AppContext.Provider value={[location, setLocation]}>
       {props.children}
     </AppContext.Provider>
   )

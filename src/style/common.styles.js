@@ -7,10 +7,3 @@ export const Loader = styled.div`
   justify-content: center;
   height: 20em;
 `
-
-export const RepoAvatar = styled.img`
-  object-fit: cover;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-`

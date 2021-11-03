@@ -12,9 +12,9 @@ export const GlobalStyle = css`
   }
 
   body {
-    background-color: #101010;
+    background-color: #4b7dd1;
     font-family: sans-serif;
-    color: #fff;
+    color: #d8e8fd;
   }
 
   a {
@@ -28,5 +28,10 @@ export const GlobalStyle = css`
   a.active:visited {
     pointer-events: none;
     cursor: default;
+  }
+  h3 {
+    padding: 0px;
+    font-size: 13px;
+    margin: 0px;
   }
 `
