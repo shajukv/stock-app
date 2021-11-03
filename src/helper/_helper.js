@@ -1,6 +1,6 @@
 import * as c from '../constant/screen'
 import { staticIconUrl } from '../config/_config'
-import { unix } from 'moment-timezone'
+
 var moment = require('moment')
 var _ = require('lodash')
 
