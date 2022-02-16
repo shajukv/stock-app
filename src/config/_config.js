@@ -4,3 +4,7 @@ export const config = {
 }
 export const API_URL = `${config.baseUrl}/v2/`
 export const WS_API_URL = `${config.wsBaseUrl}/ws/2`
+
+export const PageRoutes = {
+  trading: 'trading'
+}

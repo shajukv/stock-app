@@ -6,6 +6,7 @@ import { withTheme } from '@emotion/react'
 import { useHistory } from 'react-router-dom'
 import { isMobile } from 'react-device-detect'
 import { formatText, getColor } from '../../../helper/_helper'
+import {PageRoutes} from '../../../config/_config'
 export const Ticker = ({ ticker, id, handleActive, activeIndex }) => {
   const selectedTradingPair = useSelector(
     (state) => state.tickerslist.selectedTradingPair
@@ -21,7 +22,7 @@ export const Ticker = ({ ticker, id, handleActive, activeIndex }) => {
     handleActive(e)
     dispatch(setSelectedTradingPair(ticker[0]))
     if (isMobile) {
-      history.push('/trading')
+      history.push(`/${PageRoutes.trading}`)
     }
   }
 

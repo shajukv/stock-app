@@ -26,9 +26,7 @@ export const TickerChannel = ({}) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('TICKER CHNNEL API')
     if (data && Object.keys(data).length > 0) {
-      console.log(data)
       dispatch(
         setSelectedTickerChannelMessage(getFinalTickerChannelMessages(data))
       )

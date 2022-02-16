@@ -1,4 +1,4 @@
-import * as Styled from './tickerList.styles'
+import * as Styled from './tradingPairsList.styles'
 
 import { config } from '../../../config/_config'
 import { useState, useEffect, useContext, useCallback } from 'react'

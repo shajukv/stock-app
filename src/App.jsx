@@ -8,7 +8,7 @@ import logo from './images/load.svg'
 import { Global, css } from '@emotion/react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Media from 'react-media'
-import TickerList from './components/pages/Tickers/TickerList'
+import TickerList from './components/pages/TradingPairs/TradingPairList'
 import ChannelsList from './components/pages/Channels/ChannelsList'
 
 export const App = () => {

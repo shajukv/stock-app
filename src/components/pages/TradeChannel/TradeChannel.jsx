@@ -26,8 +26,6 @@ export const TradeChannel = ({}) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (data && Object.keys(data).length > 0) {
-      console.log('TRADE CHANNEL API')
-      console.log(data)
       dispatch(
         setSelectedTradeChannelMessage(getFinalTradeChannelMessages(data))
       )
