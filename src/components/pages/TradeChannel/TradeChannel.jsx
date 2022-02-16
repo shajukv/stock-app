@@ -12,6 +12,7 @@ import {
   getTradingPairCurrencyCode,
 } from '../../../helper/_helper'
 
+
 export const TradeChannel = ({}) => {
   const selectedTradingPair = useSelector(
     (state) => state.tickerslist.selectedTradingPair
@@ -43,44 +44,46 @@ export const TradeChannel = ({}) => {
 
   return (
     <Styled.TradeChannelTable>
-      {tradeChannel && Object.keys(tradeChannel).length > 0 && (
-        <Styled.TradeChannelTableItemWrap>
-          <Styled.TradeChannelTableItemRow>
-            <Styled.TradeChannelItemRowHeadingTitle>
-              TRADES &#8595;
-            </Styled.TradeChannelItemRowHeadingTitle>
-          </Styled.TradeChannelTableItemRow>
-          <Styled.TradeChannelTableItemRow>
-            <Styled.TradeChannelItemRowHeading>
-              AMOUNT ({getTradingPairCurrencyCode(selectedTradingPair)[0]})
-            </Styled.TradeChannelItemRowHeading>
-            <Styled.TradeChannelItemRowHeading>
-              PRICE ({getTradingPairCurrencyCode(selectedTradingPair)[1]})
-            </Styled.TradeChannelItemRowHeading>
-            <Styled.TradeChannelItemRowHeading>
-              TIME
-            </Styled.TradeChannelItemRowHeading>
-          </Styled.TradeChannelTableItemRow>
-          {Object.values(tradeChannel[0]).map((item, index) => {
-            return (
-              <Styled.TradeChannelTableItemRow key={item?.ID} id={item?.ID}>
-                <Styled.TradeChannelItemRowTitle>
-                  {' '}
-                  {item?.AMOUNT}
-                </Styled.TradeChannelItemRowTitle>
-                <Styled.TradeChannelItemRowTitle>
-                  {' '}
-                  {item?.PRICE}
-                </Styled.TradeChannelItemRowTitle>
-                <Styled.TradeChannelItemRowTitle>
-                  {' '}
-                  {getLocalTime(item?.MTS)}
-                </Styled.TradeChannelItemRowTitle>
-              </Styled.TradeChannelTableItemRow>
-            )
-          })}
-        </Styled.TradeChannelTableItemWrap>
-      )}
+      {tradeChannel &&
+        Object.keys(tradeChannel).length > 0 &&
+        Object.values(tradeChannel)[0] !== undefined && (
+          <Styled.TradeChannelTableItemWrap>
+            <Styled.TradeChannelTableItemRow>
+              <Styled.TradeChannelItemRowHeadingTitle>
+                TRADES &#8595;
+              </Styled.TradeChannelItemRowHeadingTitle>
+            </Styled.TradeChannelTableItemRow>
+            <Styled.TradeChannelTableItemRow>
+              <Styled.TradeChannelItemRowHeading>
+                AMOUNT ({getTradingPairCurrencyCode(selectedTradingPair)[0]})
+              </Styled.TradeChannelItemRowHeading>
+              <Styled.TradeChannelItemRowHeading>
+                PRICE ({getTradingPairCurrencyCode(selectedTradingPair)[1]})
+              </Styled.TradeChannelItemRowHeading>
+              <Styled.TradeChannelItemRowHeading>
+                TIME
+              </Styled.TradeChannelItemRowHeading>
+            </Styled.TradeChannelTableItemRow>
+            {Object.values(tradeChannel[0]).map((item, index) => {
+              return (
+                <Styled.TradeChannelTableItemRow key={item?.ID} id={item?.ID}>
+                  <Styled.TradeChannelItemRowTitle>
+                    {' '}
+                    {item?.AMOUNT}
+                  </Styled.TradeChannelItemRowTitle>
+                  <Styled.TradeChannelItemRowTitle>
+                    {' '}
+                    {item?.PRICE}
+                  </Styled.TradeChannelItemRowTitle>
+                  <Styled.TradeChannelItemRowTitle>
+                    {' '}
+                    {getLocalTime(item?.MTS)}
+                  </Styled.TradeChannelItemRowTitle>
+                </Styled.TradeChannelTableItemRow>
+              )
+            })}
+          </Styled.TradeChannelTableItemWrap>
+        )}
     </Styled.TradeChannelTable>
   )
 }

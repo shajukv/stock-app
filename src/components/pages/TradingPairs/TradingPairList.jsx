@@ -9,11 +9,15 @@ import { Error } from '../../error/Error'
 import loaderImage from '../../../images/load.svg'
 import * as CommonStyled from '../../../style/common.styles'
 import { setTickersList } from '../../../redux/slices/tickers/tickerslistSlice'
-
+import { setSelectedTradingPair } from '../../../redux/slices/tickers/tickerslistSlice'
 import { useGetTickersQuery } from '../../../api/tickersApiSlice'
+import { isMobile } from 'react-device-detect'
 
 const TickerList = ({}) => {
   const tickersList = useSelector((state) => state.tickerslist.tickers)
+  const selectedTradingPair = useSelector(
+    (state) => state.tickerslist.selectedTradingPair
+  )
   const dispatch = useDispatch()
   const { isLoading, error, data } = useGetTickersQuery()
   const [activeIndex, setActiveIndex] = useState(0)
@@ -22,6 +26,14 @@ const TickerList = ({}) => {
       dispatch(setTickersList(getTradingPairData(data)))
     }
   }, [data])
+
+  useEffect(() => {
+    if (tickersList) {
+      if (!isMobile && !selectedTradingPair) {
+        dispatch(setSelectedTradingPair(tickersList[0][0]))
+      }
+    }
+  }, [tickersList])
 
   const handleActive = (e) => {
     const { id } = e.currentTarget

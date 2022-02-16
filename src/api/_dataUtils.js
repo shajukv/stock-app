@@ -68,13 +68,8 @@ export const tranformTradeChannelMsg = (data, isToPatch = false) => {
     const id = patchedObj.ID
     let patchedTradeChannel = {}
     patchedTradeChannel[id] = patchedObj
-    if (newTradeChannel[0].hasOwnProperty(id)) {
-      tranformedData = Object.keys(newTradeChannel[0]).forEach(
-        (key) => (newTradeChannel[0][key] = patchedObj)
-      )
-    } else {
-      tranformedData = { ...tradeChannel[0], ...patchedTradeChannel }
-    }
+
+    tranformedData = { ...tradeChannel[0], ...patchedTradeChannel }
   } else {
     if (data && Object.keys(data).length > 0) {
       Array.isArray(Object.values(data)) &&

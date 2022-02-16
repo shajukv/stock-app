@@ -6,10 +6,15 @@ export const getLocalTime = (timestamp) => {
 }
 
 export const sortData = (data) => {
-  let sorted = Object.entries(data).sort((a, b) => a[1].MTS - b[1].MTS)
-  // limit to n records
-  sorted = sorted.slice(sorted.length - 20, sorted.length)
-  return Object.fromEntries(sorted)
+  if (data) {
+    let sorted = Object.entries(data)?.sort((a, b) => a[1].MTS - b[1].MTS)
+    // limit to n records
+    sorted = sorted.slice(sorted.length - 20, sorted.length)
+    const sortedObj = Object.fromEntries(sorted);
+    const orderdObj = _.orderBy(sortedObj, item => item.MTS, 'desc');
+    return orderdObj;
+  }
+  return data
 }
 
 export const formatText = (data) => {

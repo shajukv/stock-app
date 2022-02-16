@@ -15,6 +15,7 @@ export const TickerChannel = ({}) => {
   const selectedTradingPair = useSelector(
     (state) => state.tickerslist.selectedTradingPair
   )
+
   const history = useHistory()
   const message = {
     event: 'subscribe',
@@ -47,6 +48,7 @@ export const TickerChannel = ({}) => {
     )
   }
   if (error) return <Error error={error} />
+
   return (
     <Styled.TikerChannelTable>
       {tickerChannel && Object.keys(tickerChannel).length > 1 && (
