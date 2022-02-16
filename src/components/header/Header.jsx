@@ -3,7 +3,7 @@ export const Header = () => {
   return (
     <>
       <Styled.Header>
-        <Styled.Title>Weather</Styled.Title>
+        <Styled.Title>Stock App</Styled.Title>
       </Styled.Header>
     </>
   )

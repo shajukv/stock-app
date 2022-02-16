@@ -1,39 +1,48 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
-import { QueryClientProvider, QueryClient } from 'react-query'
+import { store } from './redux/store/index'
+import { Provider } from 'react-redux'
+import React from 'react'
 import Container from './components/container/Container'
 import { Header } from './components/header/Header'
 import { GlobalStyle } from './style/GlobalStyle.styles'
 import logo from './images/load.svg'
 import { Global, css } from '@emotion/react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import { AppProvider } from './context/AppContext'
-import { SearchInput } from './components/searchInput/SearchInput'
-
-const WeatherList = React.lazy(() =>
-  import('./components/pages/weatherList/WeatherList')
-)
-const queryClient = new QueryClient()
+import Media from 'react-media'
+import TickerList from './components/pages/Tickers/TickerList'
+import ChannelsList from './components/pages/Channels/ChannelsList'
 
 export const App = () => {
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <AppProvider>
-          <Global styles={GlobalStyle} />
-          <Container>
-            <Header />
-            <SearchInput />
-            <React.Suspense fallback="Loading...">
-              <Router>
-                <Switch>
-                  <Route path="/" exact component={WeatherList}></Route>
-                </Switch>
-              </Router>
-            </React.Suspense>
-          </Container>
-        </AppProvider>
-      </QueryClientProvider>
+      <Provider store={store}>
+        <Global styles={GlobalStyle} />
+        <Container>
+          <Header />
+          <React.Suspense fallback="Loading...">
+            <Media query="(max-width: 480px)">
+              {(matches) =>
+                matches ? (
+                  <Router>
+                    <Switch>
+                      <Route path="/" exact component={TickerList}></Route>
+                      <Route
+                        path="/trading"
+                        exact
+                        component={ChannelsList}
+                      ></Route>
+                    </Switch>
+                  </Router>
+                ) : (
+                  <>
+                    <TickerList />
+                    <ChannelsList />
+                  </>
+                )
+              }
+            </Media>
+          </React.Suspense>
+        </Container>
+      </Provider>
     </>
   )
 }

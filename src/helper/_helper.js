@@ -1,43 +1,32 @@
-import * as c from '../constant/screen'
-import { staticIconUrl } from '../config/_config'
-
 var moment = require('moment')
 var _ = require('lodash')
 
-export const getDay = (timestamp, timezone) => {
-  const timezoneOffset = timezone === 0 ? timezone : `${timezone}`
-  return moment(timestamp * 1000)
-    .utcOffset(timezoneOffset)
-    .format('dddd, MMM DD YYYY hh a')
-  //return moment(timestamp * 1000).tz("Europe/London").format('dddd, MMM DD YYYY hh a')
+export const getLocalTime = (timestamp) => {
+  return moment.utc(timestamp).local().format('hh:mm:ss a')
 }
 
-export const getDate = (timestamp, timezone) => {
-  const timezoneOffset = timezone === 0 ? timezone : `${timezone}`
-  //return moment.unix(timestamp).format(' MMM DD YYYY')
-  return moment(timestamp * 1000)
-    .utcOffset(timezoneOffset)
-    .format(' MMM DD YYYY')
+export const sortData = (data) => {
+  let sorted = Object.entries(data).sort((a, b) => a[1].MTS - b[1].MTS)
+  // limit to n records
+  sorted = sorted.slice(sorted.length - 20, sorted.length)
+  return Object.fromEntries(sorted)
 }
-export const getIconUrl = (icon) => {
-  if (!icon) {
-    return ''
+
+export const formatText = (data) => {
+  if (data) {
+    return data.slice(1).replace(/(?<=^(?:.{3})+)(?!$)/g, ' / ')
   }
-  return `${staticIconUrl}${icon}.png`
 }
-
-export const getGroupedWeatherResults = (weathersList) => {
-  const sortedWeathersList = _.sortBy(weathersList, (item) => item.dt)
-  return _.groupBy(sortedWeathersList, (item) =>
-    moment.unix(item.dt).format('ddd')
-  )
+export const getTradingPairCurrencyCode = (data) => {
+  if (data) {
+    const currencyText = data.slice(1).replace(/(?<=^(?:.{3})+)(?!$)/g, ' / ')
+    const currencyCode = currencyText.split(/\W+/).filter((x) => x)
+    return currencyCode
+  }
+  return ''
 }
-export const getGroupedWeatherResultsHours = (weathersList) => {
-  const sortedWeathersList = _.sortBy(weathersList, (item) => item.dt)
-  const grouedWeathersList = _.groupBy(sortedWeathersList, (item) =>
-    moment.unix(item.dt).format('hh a')
-  )
-  return grouedWeathersList
+export const getColor = (dailyChanges) => {
+  return dailyChanges > 0 ? { color: 'green' } : { color: 'red' }
 }
 export const getTime = (timestamp, timezone) => {
   const timezoneOffset = timezone === 0 ? timezone : `${timezone}`
@@ -45,7 +34,4 @@ export const getTime = (timestamp, timezone) => {
   return moment(timestamp * 1000)
     .utcOffset(timezoneOffset)
     .format('hh a')
-}
-export const filterWeatherResults = (weathersList) => {
-  return weathersList.filter((element, index) => index % 2 == 0)
 }

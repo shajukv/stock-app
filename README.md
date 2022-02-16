@@ -1,10 +1,14 @@
-# STake - React Weather App - Exercise
-React Weather app- communicate with an open weather API. List current weather for city and forecast weather report for every 3 hours for 5 days.
+# Bitoasis - Stock Realtime App - Exercise
+React Stock Realtime app - displays available trading pairs; using the Bitfinex Public API.
+
+* Application has built in support for both Http(REST) and Websocket API communications services to deliver realtime data.
+* Responsive - Support both Web and Mobile layouts(Components are loading based on devices).
+* Built in React 17+.
 
 - Functional Components.
-- React Context
-- react-router
-- react-query
+- Redux-toolkit (State Management)
+- RTK query
+- React-router
 - Emotion (CSS-in-JS).
 - Webpack bundler
 - Code Quality - Prettier
@@ -24,6 +28,15 @@ React Weather app- communicate with an open weather API. List current weather fo
   
   Runs the app in the development mode.
   
-  ### `yarn start`
+  ### `npm run start` or `yarn start`
 
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+
+ To build the app for prod.
+
+ ###  `npm run build` or `yarn build`
+
+ To make Prettier code
+
+ ###  `npm run format` 

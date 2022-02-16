@@ -12,7 +12,7 @@ export const GlobalStyle = css`
   }
 
   body {
-    background-color: #4b7dd1;
+    background-color: #112331;
     font-family: sans-serif;
     color: #d8e8fd;
   }
